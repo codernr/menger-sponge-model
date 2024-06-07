@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { createColoredMengerSponge, createMengerSponge } from './modules';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 // Create scene, camera, and renderer
@@ -8,11 +9,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Create cube
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+createColoredMengerSponge(2, 3, scene);
 
 // Create a directional light
 const directionalLight = new THREE.PointLight(0xffffff, 0.5);
